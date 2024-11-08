@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { httpBatchLink } from "@trpc/client";
 import { useState } from "react";
 import { trpc } from "./utils/trpc";
+import { ReactQueryStreamedHydration } from "@tanstack/react-query-next-experimental";
 
 // export const metadata: Metadata = {
 //   title: "Create Next App",
@@ -40,7 +41,9 @@ export default function RootLayout({
       <body style={{ margin: "20px" }}>
         <trpc.Provider client={trpcClient} queryClient={queryClient}>
           <QueryClientProvider client={queryClient}>
-            {children}
+            <ReactQueryStreamedHydration>
+              {children}
+            </ReactQueryStreamedHydration>
             <ReactQueryDevtools />
           </QueryClientProvider>
         </trpc.Provider>
