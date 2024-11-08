@@ -6,7 +6,10 @@ const handler = (request: Request) => {
     endpoint: "/api",
     req: request,
     router: appRouter,
-    createContext: () => ({}),
+    createContext: () => {
+      console.log("we be fetching");
+      return {};
+    },
   });
 };
 

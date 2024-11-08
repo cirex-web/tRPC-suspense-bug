@@ -3,7 +3,7 @@ import { publicProcedure, router } from "./trpc";
 export const appRouter = router({
   hello: publicProcedure.query(async () => {
     await new Promise((resolve) => setTimeout(resolve, 3000));
-    return "Data returned from tRPC (updated)";
+    return "Data returned from tRPC (updated) x2";
   }),
 });
 
